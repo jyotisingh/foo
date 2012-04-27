@@ -4,6 +4,7 @@ gem 'rails', '3.2.3'
 gem 'sqlite3'
 gem 'rspec-rails'
 gem 'jquery-rails', "2.0.2"
+gem 'activerecord'
 
 group :assets do
   gem 'sass-rails', "~> 3.2.3"

@@ -1,0 +1,31 @@
+#fund
+  %h1
+    %span
+      = @fund.name
+  %p
+    Type:
+    = @fund.type
+  %p
+    Net Asset Value:
+    = @fund.nav
+  %p
+    Last update on:
+    = @fund.last_updated_date
+
+  %h2
+    %span
+      Past Data
+  %table{:id=>"archives_table"}
+    %thead
+      %th
+        Date
+      %th
+        Nav
+    %tbody
+      - @fund.archived_navs.each do |date, nav|
+        %tr
+          %td
+            = date
+          %td
+            = nav
+

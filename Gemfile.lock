@@ -120,6 +120,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
   coffee-rails (~> 3.2.1)
   jquery-rails (= 2.0.2)
   rails (= 3.2.3)

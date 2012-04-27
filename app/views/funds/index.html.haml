@@ -1,0 +1,29 @@
+#funds
+  %h1
+    %span
+      Funds
+
+  #table
+    %table{:id => "funds_table"}
+      %thead
+        %th
+          Name
+        %th
+          Type
+        %th
+          Net asset value
+        %th
+          Date update
+      %tbody
+        - @funds.each do |fund|
+          %tr
+            %td
+              = link_to fund.name, fund_path(fund)
+            %td
+              = fund.type
+            %td
+              = fund.nav
+            %td
+              = fund.last_updated_date
+
+
