@@ -1,0 +1,13 @@
+#admin_fund_add
+  - if !@fund.errors.empty?
+    #error_notice
+      - @fund.errors.full_messages.each do |message|
+        %p
+          = message
+  = form_for(@fund, :url => admin_funds_path) do |fund|
+    = render :partial => "fields", :locals => {:fund => fund}
+    .clearfix
+      .input
+        = fund.submit "Add", :class => "btn primary"
+
+

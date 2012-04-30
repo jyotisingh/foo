@@ -3,4 +3,8 @@ Investment::Application.routes.draw do
   resources :users do
     resources :assets
   end
+
+  namespace :admin do
+    resources :funds
+  end
 end
