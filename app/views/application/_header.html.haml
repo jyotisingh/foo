@@ -1,6 +1,6 @@
 #header
   %h1.app_name
     Investment Manager
-  - if @user
+  - if @user and @user.email
     %span.profile_link
       = link_to "Profile", edit_user_path(@user)

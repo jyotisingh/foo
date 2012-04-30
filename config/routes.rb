@@ -1,6 +1,6 @@
 Investment::Application.routes.draw do
   resources :funds
-  resources :users do
+  resources :users, :only => [:new, :edit, :create, :update] do
     resources :assets
   end
 
