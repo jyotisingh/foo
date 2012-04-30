@@ -1,13 +1,16 @@
 #header{
   border-bottom:10px solid Turquoise;
   height:30px;
-  padding-bottom:10px;
+  padding-bottom:20px;
   .app_name{
     color:#0064CD;
     float:left;
   }
 }
 
+#im_content{
+  margin-top: 30px;
+}
 #error_notice{
   p{
     background-color:red;
@@ -40,6 +43,4 @@
   float:right;
 }
 
-#im_content{
-  margin-top: 30px;
-}
+
