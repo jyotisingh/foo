@@ -1,0 +1,31 @@
+#user_assets
+  - if notice
+    #success_notice
+      %p
+        = notice
+  #assets_table
+    %table{:id => "assets_table"}
+      %thead
+        %th
+          Fund
+        %th
+          Quantity
+        %th
+          Invested Amount
+        %th
+          Current Nav
+        %th
+          Fund NAV as of
+      %tbody
+        - @assets.each do |asset|
+          %tr
+            %td
+              = asset.fund.name
+            %td
+              = asset.quantity_purchased
+            %td
+              = asset.book_value
+            %td
+              = asset.value
+            %td
+              = asset.fund.last_updated_date
