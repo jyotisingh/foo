@@ -24,7 +24,7 @@ group :assets do
 end
 
 group :production do
-  gem 'postgres'
+  gem 'pg'
 end
 group :test do
   gem 'turn', :require => false
