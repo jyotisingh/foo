@@ -4,7 +4,7 @@
       = @fund.name
   %p
     Type:
-    = @fund.type
+    = @fund.fund_type
   %p
     Net Asset Value:
     = @fund.nav
@@ -22,10 +22,10 @@
       %th
         Nav
     %tbody
-      - @fund.archived_navs.each do |date, nav|
+      - @fund.archived_navs.each do |archive|
         %tr
           %td
-            = date
+            = archive.date
           %td
-            = nav
+            = archive.nav
 
