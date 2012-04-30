@@ -1,0 +1,18 @@
+#user_registration
+  - if !@user.nil? and !@user.errors.empty?
+    #error_notice
+      - @user.errors.full_messages.each do |message|
+        %p
+          = message
+
+  = form_for(@user, :html => {:id => "registration"}) do |user|
+    %label Name
+    .input
+      = user.text_field :name
+    %label Email
+    .input
+      = user.text_field :email
+    .input
+      = user.submit "Register", :class => "btn primary", :id => "registration_submit"
+
+

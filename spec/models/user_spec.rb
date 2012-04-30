@@ -1,9 +1,17 @@
 require 'spec_helper'
 describe User do
-  it "should save a asset user" do
+  it "should save a user" do
+    user = User.new(:name => "Manju", :email => "a@b.com")
+    user.save
+    user.reload
+    user.name.should == 'Manju'
+    user.email.should == "a@b.com"
+  end
+
+  it "should save a user with assets" do
     asset1 = Asset.new({:book_value => 1000, :quantity_purchased => 10, :fund => Fund.create!({:name=> "Fund1", :fund_type=>"Income Retail", :nav => 10})})
     asset2 = Asset.new({:book_value => 2000, :quantity_purchased => 20, :fund => Fund.create!({:name=> "Fund2", :fund_type=>"Growth Retail", :nav => 11})})
-    user = User.new(:name => "Manju")
+    user = User.new(:name => "Manju", :email => "a@b.com")
     user.assets << asset1
     user.assets << asset2
     user.save!
@@ -17,6 +25,7 @@ describe User do
       user = User.new
       user.valid?.should == false
       user.errors[:name].should include("can't be blank")
+      user.errors[:email].should include("can't be blank")
     end
 
     it "should validate presence of mandatory fields in asset" do
