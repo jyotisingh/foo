@@ -22,5 +22,21 @@ describe UsersController do
     response.should render_template :new
     assigns(:user).errors[:email].should include "can't be blank"
   end
+  
+  it "should edit user" do
+    user = User.create!(:name => "a", :email => "a@@.com")
+    get :edit, :id => user.id
+    assigns(:user).should == user
+    response.should be_success
+    response.should render_template :edit
+  end
 
+  it "should update user" do
+    user = User.create!(:name => "a", :email => "a@@.com")
+    put :update, :id => user.id, :user => {:name => "foo", :email => "1@q.com"}
+    response.should redirect_to user_assets_path(assigns(:user))
+    flash[:notice].should== "Successfully updated profile!"
+    user.reload.name.should == "foo"
+    user.email.should == "1@q.com"
+  end
 end

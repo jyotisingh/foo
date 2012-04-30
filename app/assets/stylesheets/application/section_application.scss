@@ -1,0 +1,23 @@
+.app_name{
+  color:#0064CD;
+  padding-left:50px;
+  border-bottom:8px solid Turquoise;
+}
+
+#error_notice{
+  p{
+    background-color:red;
+    padding:10px;
+    color:white;
+    font-size:20px
+  }
+}
+#success_notice{
+  p{
+    background-color:green;
+    padding:10px;
+    color:white;
+    font-size:20px
+  }
+}
+

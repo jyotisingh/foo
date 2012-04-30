@@ -1,4 +1,4 @@
-#user_registration
+#user_edit
   - if !@user.nil? and !@user.errors.empty?
     #error_notice
       - @user.errors.full_messages.each do |message|
@@ -8,6 +8,5 @@
   = form_for(@user, :html => {:id => "registration"}) do |user|
     = render :partial => "fields", :locals => {:user => user}
     .input
-      = user.submit "Register", :class => "btn primary", :id => "registration_submit"
-
+      = user.submit "Update", :class => "btn primary"
 

@@ -7,6 +7,9 @@
     %span
       Declare a new asset 
       = link_to "here", new_user_asset_path(@user)
+  %h4
+    %span
+      = link_to "Profile", edit_user_path(@user)
   #assets_table
     - unless @user.assets.empty?
       %table{:id => "assets_table"}
