@@ -1,9 +1,9 @@
-#user_assets_add
+#user_assets_edit
   - if !@user.errors.empty?
     #error_notice
       - @user.errors.full_messages.each do |message|
         %p
           = message
-  = form_for(@asset, :url => user_assets_path) do |asset|
+  = form_for(@asset, :url => "/users/#{@user.id}/assets/#{@asset.id}/") do |asset|
     = render :partial => "fields", :locals => {:asset => asset}
 

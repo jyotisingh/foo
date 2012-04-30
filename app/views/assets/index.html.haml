@@ -16,6 +16,8 @@
           Current Nav
         %th
           Fund NAV as of
+        %th
+          Actions
       %tbody
         - @assets.each do |asset|
           %tr
@@ -29,3 +31,7 @@
               = asset.value
             %td
               = asset.fund.last_updated_date
+            %td
+              = link_to "edit", "/users/#{@user.id}/assets/#{asset.id}/edit"
+              |
+              = link_to "delete", "/users/#{@user.id}/assets/#{asset.id}", :method => "DELETE" 
