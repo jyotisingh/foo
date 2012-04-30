@@ -11,7 +11,7 @@ describe UsersController do
   it "should create a new user" do
     initial_count = User.count
     post :create, :user => {:name => "foo", :email => "a@a.com"}
-    response.should redirect_to user_asset_path(assigns(:user))
+    response.should redirect_to user_assets_path(assigns(:user))
     assigns(:user).should_not be_nil
     User.count.should == initial_count +1
     flash[:notice].should == "Registration Successful!"
