@@ -1,8 +1,8 @@
 class Asset < ActiveRecord::Base
-  attr_accessible :quantity_purchased, :book_value, :fund, :fund_id, :user, :user_id
+  attr_accessible :quantity_purchased, :book_value, :purchase_date, :fund, :fund_id, :user, :user_id
   belongs_to :fund
   belongs_to :user
-  validates :quantity_purchased, :book_value, :presence => true
+  validates :quantity_purchased, :book_value, :purchase_date, :presence => true
   
   def value
     fund.nav * quantity_purchased

@@ -16,7 +16,8 @@ class AssetsController < ApplicationController
     @user.valid?
     render :new and return unless @user.errors.empty?
     @user.save
-    redirect_to user_assets_path
+    redirect_to user_assets_path, :notice => "Successfully added!"
+ 
   end
 
   def edit
@@ -30,6 +31,13 @@ class AssetsController < ApplicationController
     @asset.update_attributes(params[:asset].merge({:fund => Fund.first}))
     @asset.valid?
     render :edit and return unless @asset.errors.empty?
-    redirect_to user_assets_path
+    redirect_to user_assets_path, :notice => "Successfully updated!"
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @asset = @user.assets.find(params[:id])
+    @asset.destroy
+    redirect_to user_assets_path, :notice => "Successfully deleted!"
   end
 end

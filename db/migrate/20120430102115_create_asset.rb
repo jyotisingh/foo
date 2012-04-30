@@ -3,6 +3,7 @@ class CreateAsset < ActiveRecord::Migration
     create_table :assets do |t|
       t.float   :quantity_purchased
       t.float   :book_value
+      t.date   :purchase_date
       t.integer :user_id
       t.integer :fund_id
     end

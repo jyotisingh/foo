@@ -30,4 +30,13 @@ describe Asset do
     asset.profit_statement["2012-04-23"].should == 80.0
     asset.profit_statement["2012-04-27"].should == 100.0
   end
+
+  it "should update asset" do
+    fund = Fund.create!({:name => "a", :fund_type => "a", :nav => 100.0})
+    asset = Asset.create!({:fund=> fund, :quantity_purchased => 10.0, :book_value => 500.0, :purchase_date => Date.new(2000,1,1)})
+    asset.update_attributes({:quantity_purchased => 20, :purchase_date => "Fri, 27 Apr 2012"})
+    asset.reload
+    asset.quantity_purchased.should == 20
+    asset.purchase_date.to_s.should == "2012-04-27"
+  end
 end

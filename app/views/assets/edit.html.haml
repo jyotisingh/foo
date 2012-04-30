@@ -6,4 +6,8 @@
           = message
   = form_for(@asset, :url => "/users/#{@user.id}/assets/#{@asset.id}/") do |asset|
     = render :partial => "fields", :locals => {:asset => asset}
+    .clearfix
+      .input
+        = asset.submit "Update", :class => "btn primary"
+
 

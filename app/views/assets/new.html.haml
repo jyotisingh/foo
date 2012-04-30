@@ -6,4 +6,8 @@
           = message
   = form_for(@asset, :url => user_assets_path) do |asset|
     = render :partial => "fields", :locals => {:asset => asset}
+    .clearfix
+      .input
+        = asset.submit "Add", :class => "btn primary"
+
 

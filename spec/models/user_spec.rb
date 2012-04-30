@@ -9,8 +9,8 @@ describe User do
   end
 
   it "should save a user with assets" do
-    asset1 = Asset.new({:book_value => 1000, :quantity_purchased => 10, :fund => Fund.create!({:name=> "Fund1", :fund_type=>"Income Retail", :nav => 10})})
-    asset2 = Asset.new({:book_value => 2000, :quantity_purchased => 20, :fund => Fund.create!({:name=> "Fund2", :fund_type=>"Growth Retail", :nav => 11})})
+    asset1 = Asset.new({:purchase_date => Date.new(2000,1,1), :book_value => 1000, :quantity_purchased => 10, :fund => Fund.create!({:name=> "Fund1", :fund_type=>"Income Retail", :nav => 10})})
+    asset2 = Asset.new({:purchase_date => Date.new(2000,1,1), :book_value => 2000, :quantity_purchased => 20, :fund => Fund.create!({:name=> "Fund2", :fund_type=>"Growth Retail", :nav => 11})})
     user = User.new(:name => "Manju", :email => "a@b.com")
     user.assets << asset1
     user.assets << asset2
@@ -37,8 +37,8 @@ describe User do
   end
 
   it "should get current assets value" do
-    asset1 = Asset.new({:book_value => 1000, :quantity_purchased => 10, :fund => Fund.create!({:name=> "Fund1", :fund_type=>"Income Retail", :nav => 10})})
-    asset2 = Asset.new({:book_value => 2000, :quantity_purchased => 20, :fund => Fund.create!({:name=> "Fund2", :fund_type=>"Growth Retail", :nav => 11})})
+    asset1 = Asset.new({:purchase_date => Date.new(2000,1,1), :book_value => 1000, :quantity_purchased => 10, :fund => Fund.create!({:name=> "Fund1", :fund_type=>"Income Retail", :nav => 10})})
+    asset2 = Asset.new({:purchase_date => Date.new(2000,1,1), :book_value => 2000, :quantity_purchased => 20, :fund => Fund.create!({:name=> "Fund2", :fund_type=>"Growth Retail", :nav => 11})})
   
     user = User.create(:name => "Manju")
     user.assets << asset1

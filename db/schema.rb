@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20120430114708) do
   create_table "assets", :force => true do |t|
     t.float   "quantity_purchased"
     t.float   "book_value"
+    t.date    "purchase_date"
     t.integer "user_id"
     t.integer "fund_id"
   end
