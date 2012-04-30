@@ -3,11 +3,13 @@ require "spec_helper"
 describe AssetsController do
   it "should add a new asset for a user" do
     user = User.create!(:name => "a", :email => "a@aa.com")
+    fund = Fund.create! :nav => 100, :name => "foo", :fund_type=> "foo"
     get :new, :user_id => user.id
     response.should be_success
     response.should render_template :new
     assigns(:user).should == user
     assigns(:asset).should_not be_nil
+    assigns(:funds).should include(fund)
   end
 
   it "should create an asset for a user" do

@@ -3,35 +3,44 @@
     #success_notice
       %p
         = notice
+  %h3
+    %span
+      Declare a new asset 
+      = link_to "here", new_user_asset_path(@user)
   #assets_table
-    %table{:id => "assets_table"}
-      %thead
-        %th
-          Fund
-        %th
-          Quantity
-        %th
-          Invested Amount
-        %th
-          Current Nav
-        %th
-          Fund NAV as of
-        %th
-          Actions
-      %tbody
-        - @assets.each do |asset|
-          %tr
-            %td
-              = asset.fund.name
-            %td
-              = asset.quantity_purchased
-            %td
-              = asset.book_value
-            %td
-              = asset.value
-            %td
-              = asset.fund.last_updated_date
-            %td
-              = link_to "edit", "/users/#{@user.id}/assets/#{asset.id}/edit"
-              |
-              = link_to "delete", "/users/#{@user.id}/assets/#{asset.id}", :method => "DELETE" 
+    - unless @user.assets.empty?
+      %table{:id => "assets_table"}
+        %thead
+          %th
+            Fund
+          %th
+            Purchase on
+          %th
+            Quantity
+          %th
+            Invested Amount
+          %th
+            Current Nav
+          %th
+            Fund NAV as of
+          %th
+            Actions
+        %tbody
+          - @assets.each do |asset|
+            %tr
+              %td
+                = asset.fund.name
+              %td
+                = asset.purchase_date
+              %td
+                = asset.quantity_purchased
+              %td
+                = asset.book_value
+              %td
+                = asset.value
+              %td
+                = asset.fund.last_updated_date
+              %td
+                = link_to "edit", "/users/#{@user.id}/assets/#{asset.id}/edit"
+                |
+                = link_to "delete", "/users/#{@user.id}/assets/#{asset.id}", :method => "DELETE" 

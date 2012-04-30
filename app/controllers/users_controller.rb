@@ -8,5 +8,6 @@ class UsersController < ApplicationController
     @user.valid?
     render :new and return unless @user.errors.empty?
     @user.save!
+    redirect_to user_assets_path(@user), :notice => "Registration Successful!"
   end
 end

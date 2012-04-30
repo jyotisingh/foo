@@ -1,7 +1,11 @@
 .clearfix
   %label Fund
   .input
-    = asset.text_field :fund
+    = asset.collection_select(:fund_id, @funds, :id, :name, :include_blank => "Select One")
+.clearfix
+  %label Purchase Date
+  .input
+    = asset.text_field :purchase_date
 .clearfix
   %label Book Value
   .input
